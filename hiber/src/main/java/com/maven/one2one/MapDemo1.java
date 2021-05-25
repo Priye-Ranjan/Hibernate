@@ -38,6 +38,11 @@ public class MapDemo1 {
         session.save(ans2);
         
         tx.commit();
+        
+        //fetching data
+        Question qn=(Question)session.get(Question.class,121);
+        System.out.println(qn.getQuestion());
+        System.out.println(qn.getAnswer().getAnswer());
         session.close();
 		
 		
