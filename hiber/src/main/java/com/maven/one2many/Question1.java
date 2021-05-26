@@ -2,7 +2,9 @@ package com.maven.one2many;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -11,7 +13,7 @@ public class Question1 {
 	@Id
 	private int questionid;
 	private String question;
-	@OneToMany(mappedBy="question")
+	@OneToMany(mappedBy="question",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	private List<Answer1> answers;
 	
 	public Question1() {
